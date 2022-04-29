@@ -9,11 +9,11 @@ class Car:
         self.model = model
 
 
-cars = []
 amountOfCars = int(input("How many cars do you have?"))
 
 while amountOfCars > 0:
-    cars.append(Car(input("What color is your car? "), input("What model is your car? ")))
+    carInfo = Car(input("What color is your car? "), input("What model is your car? "))
+    cars.append(carInfo.color + carInfo.model)
     print(amountOfCars)
     amountOfCars = amountOfCars - 1
 
