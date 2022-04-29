@@ -5,13 +5,14 @@ class Car:
         self.color = color
         self.make = make
 
+
 amountOfCars = int(input("How many cars do you have? "))
 cars = []
 
 
 for i in range(amountOfCars):
     carInfo = Car(input("What color is your car? "), input("What make is your car? "))
-    cars.append(carInfo.color + " " +carInfo.make)
+    cars.append(carInfo.color + " " + carInfo.make)
 
 carsLen = len(cars)-1
 print("\n")
