@@ -1,25 +1,46 @@
 cars = []
-netWorth = 0
+owners = []
+networth = 0
+
+
+class Owner:
+
+    def __init__(self, owner):
+        self.owner = owner
 
 
 class Car:
 
     def __init__(self, color, model, value):
-
         self.color = color
         self.model = model
         self.value = value
 
 
-amountOfCars = int(input("How many cars do you have?"))
+def findcarinfo():
+    global networth
+    amountofcars = int(input("How many cars do you have?"))
+    for i in range(amountofcars):
+        carinfo = Car(input("What color is the car? "), input("What make is the car? "),
+                      float(input("What is the value of the car? ")))
+        carowner = Owner(input("Who is the owner of the car? "))
+        cars.append(carinfo.color + " " + carinfo.model)
+        owners.append(carowner.owner)
+        networth = networth + carinfo.value
+        print(amountofcars)
+        amountofcars = amountofcars - 1
 
-for i in range(amountOfCars):
-    carInfo = Car(input("What color is your car? "), input("What make is your car? "),
-                  float(input("What is the value of your car?")))
-    cars.append(carInfo.color + " " + carInfo.model)
-    netWorth = netWorth + carInfo.value
-    print(amountOfCars)
-    amountOfCars = amountOfCars - 1
-print("You own the following cars: \n")
-print(cars)
-print("With the following net worth: " + str("${:,.2f}".format(netWorth)))
+
+def listcarinfo():
+    print("The following cars are owned: {}".format(cars))
+    print("With the following net-worth: ${:,.2f}".format(networth))
+
+
+def listcarowners():
+    print("The following people own a car: {}".format(owners))
+
+
+if __name__ == "__main__":
+    findcarinfo()
+    listcarinfo()
+    listcarowners()
